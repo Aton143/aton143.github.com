@@ -48,13 +48,8 @@ function makeOnMouseMoveDraggableElementEventListener(element, elementDictionary
   }
 }
 
-let i = 0;
-
 function makeOnMouseUpDraggableElementEventListener(element, elementDictionary) {
   return function(event) {
-    console.log("I've been upped!" + i);
-    i++;
-
     document.removeEventListener("mousemove", elementDictionary[element.id].mouseMoveEventListener);
     document.removeEventListener("mouseup", elementDictionary[element.id].mouseUpEventListener);
 
