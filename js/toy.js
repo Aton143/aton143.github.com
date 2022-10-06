@@ -13,13 +13,18 @@ function makeOnMouseDownDraggableElementEventListener(element, elementDictionary
   return function(event) {
     elementDictionary[element.id].start = makePoint(event.clientX, event.clientY);
 
-    const elementMouseMoveEventListener = makeOnMouseMoveDraggableElementEventListener(element, elementDictionary);
-    elementDictionary[element.id].mouseMoveEventListener = elementMouseMoveEventListener;
-    document.addEventListener("mousemove", elementMouseMoveEventListener);
+    if ((elementDictionary[element.id].mouseMoveEventListener !== null) &&
+        (elementDictionary[element.id].mouseUpEventListener !== null)) {
+      elementDictionary[element.id].mouseUpEventListener(null);
+    } else {
+      const elementMouseMoveEventListener = makeOnMouseMoveDraggableElementEventListener(element, elementDictionary);
+      elementDictionary[element.id].mouseMoveEventListener = elementMouseMoveEventListener;
+      document.addEventListener("mousemove", elementMouseMoveEventListener);
 
-    const elementMouseUpEventListener = makeOnMouseUpDraggableElementEventListener(element, elementDictionary);
-    elementDictionary[element.id].mouseUpEventListener = elementMouseUpEventListener;
-    document.addEventListener("mouseup", elementMouseUpEventListener);
+      const elementMouseUpEventListener = makeOnMouseUpDraggableElementEventListener(element, elementDictionary);
+      elementDictionary[element.id].mouseUpEventListener = elementMouseUpEventListener;
+      document.addEventListener("mouseup", elementMouseUpEventListener);
+    }
   }
 }
 
@@ -62,6 +67,8 @@ window.onload = function(event) {
     draggableElementsDictionary[element.id] = {
       start: makePoint(0, 0),
       end: makePoint(0, 0),
+      mouseMoveEventListener: null,
+      elementMouseUpEventListener: null,
     };
 
     element.addEventListener("mousedown", makeOnMouseDownDraggableElementEventListener(element, draggableElementsDictionary));
