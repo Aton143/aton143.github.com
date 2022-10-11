@@ -20,6 +20,7 @@ window.onload = function(event) {
     };
 
     element.addEventListener("mousedown", makeOnMouseDownDraggableElementEventListener(element, draggableElementsDictionary));
+    element.addEventListener("touchstart", makeOnMouseDownDraggableElementEventListener(element, draggableElementsDictionary));
 
     draggableElementIndex++;
   }
@@ -50,10 +51,12 @@ function makeOnMouseDownDraggableElementEventListener(element, elementDictionary
       const elementMouseMoveEventListener = makeOnMouseMoveDraggableElementEventListener(element, elementDictionary);
       elementDictionary[element.id].mouseMoveEventListener = elementMouseMoveEventListener;
       document.addEventListener("mousemove", elementMouseMoveEventListener);
+      document.addEventListener("touchmove", elementMouseMoveEventListener);
 
       const elementMouseUpEventListener = makeOnMouseUpDraggableElementEventListener(element, elementDictionary);
       elementDictionary[element.id].mouseUpEventListener = elementMouseUpEventListener;
       document.addEventListener("mouseup", elementMouseUpEventListener);
+      document.addEventListener("touchend", elementMouseUpEventListener);
 
       element.style.position = "relative";
       element.style.cursor = "grabbing";
@@ -83,11 +86,15 @@ function makeOnMouseMoveDraggableElementEventListener(element, elementDictionary
 
       if ((currentElementIndex < mouseMoveDraggableElementIndex) &&
           (mouseMoveDraggableElementClienRect.top < currentElementClientRect.top)) {
+        // elementDictionary[elementKey].element.style["border-top-color"] = "black";
+
         elementDictionary[element.id].index = currentElementIndex;
         elementDictionary[elementKey].index = mouseMoveDraggableElementIndex;
       }
       if ((currentElementIndex > mouseMoveDraggableElementIndex) &&
           (mouseMoveDraggableElementClienRect.top > currentElementClientRect.top)) {
+        // elementDictionary[elementKey].element.style["border-bottom-color"] = "black";
+
         elementDictionary[element.id].index = currentElementIndex;
         elementDictionary[elementKey].index = mouseMoveDraggableElementIndex;
       }
@@ -99,6 +106,9 @@ function makeOnMouseUpDraggableElementEventListener(element, elementDictionary) 
   return function(event) {
     document.removeEventListener("mousemove", elementDictionary[element.id].mouseMoveEventListener);
     document.removeEventListener("mouseup", elementDictionary[element.id].mouseUpEventListener);
+
+    document.removeEventListener("touchmove", elementDictionary[element.id].mouseMoveEventListener);
+    document.removeEventListener("touchend", elementDictionary[element.id].mouseUpEventListener);
 
     elementDictionary[element.id].mouseMoveEventListener = null;
     elementDictionary[element.id].mouseUpEventListener = null;

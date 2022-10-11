@@ -6,7 +6,7 @@
   -webkit-user-select:   none;
   -webkit-touch-callout: none;
 
-  border: 1px solid;
+  border: 1px solid transparent;
 }
 
 .my-draggable:hover {
