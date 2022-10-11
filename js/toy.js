@@ -58,10 +58,8 @@ function makeOnMouseDownDraggableElementEventListener(element, elementDictionary
       element.style.position = "relative";
       element.style.cursor = "grabbing";
 
-      const mouseDownDraggableElementClienRect = element.getBoundingClientRect();
       elementDictionary[element.id].originalPosition =
-        makePoint(mouseDownDraggableElementClienRect.left, mouseDownDraggableElementClienRect.top);
-      console.log(elementDictionary[element.id].originalPosition);
+        makePoint(element.offsetLeft, element.offsetTop);
     }
   }
 }
@@ -74,8 +72,7 @@ function makeOnMouseMoveDraggableElementEventListener(element, elementDictionary
     const currentMousePosition = makePoint(event.clientX, event.clientY);
     const calculatedElementPosition = firstMinusSecondPoint(currentMousePosition, elementDictionary[element.id].originalPosition);
 
-    element.style.left = `${calculatedElementPosition.x }px`;
-    element.style.top = `${calculatedElementPosition.y}px`;
+    element.style.transform = `translate(${calculatedElementPosition.x}px, ${calculatedElementPosition.y}px)`;
 
     const mouseMoveDraggableElementIndex = elementDictionary[element.id].index;
     const mouseMoveDraggableElementClienRect = element.getBoundingClientRect();
@@ -127,7 +124,8 @@ function makeOnMouseUpDraggableElementEventListener(element, elementDictionary) 
 
     for (let elementIndex of elementIndexArray) {
       listElement.appendChild(elementIndex.element);
-      element.style.position = "static";
+      elementIndex.element.style.position = "static";
+      element.style.transform = "";
     }
   }
 }
