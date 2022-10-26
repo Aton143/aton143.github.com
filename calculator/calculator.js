@@ -77,7 +77,7 @@ function createOperatorButtonListener(operator, calculatorDisplay, calculator) {
         console.log(result);
         break;
       case "-":
-        result = numbers[0] - numbers[1];
+        result = numbers[1] - numbers[0];
         break;
       case "*":
         result = numbers[0] * numbers[1];
@@ -94,8 +94,8 @@ function createOperatorButtonListener(operator, calculatorDisplay, calculator) {
 
       calculatorDisplay.value = stringifiedResult;
 
-      calculatorStrings[1] = stringifiedResult;
-      calculatorStrings[0] = "";
+      calculatorStrings[0] = stringifiedResult;
+      calculatorStrings[1] = "";
 
       calculator.currentOperator = null;
 
