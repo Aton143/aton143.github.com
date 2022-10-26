@@ -86,14 +86,14 @@ function makeOnMouseMoveDraggableElementEventListener(element, elementDictionary
 
       if ((currentElementIndex < mouseMoveDraggableElementIndex) &&
           (mouseMoveDraggableElementClienRect.top < currentElementClientRect.top)) {
-        // elementDictionary[elementKey].element.style["border-top-color"] = "black";
+        elementDictionary[elementKey].element.style["border-top-color"] = "black";
 
         elementDictionary[element.id].index = currentElementIndex;
         elementDictionary[elementKey].index = mouseMoveDraggableElementIndex;
       }
       if ((currentElementIndex > mouseMoveDraggableElementIndex) &&
           (mouseMoveDraggableElementClienRect.top > currentElementClientRect.top)) {
-        // elementDictionary[elementKey].element.style["border-bottom-color"] = "black";
+        elementDictionary[elementKey].element.style["border-bottom-color"] = "black";
 
         elementDictionary[element.id].index = currentElementIndex;
         elementDictionary[elementKey].index = mouseMoveDraggableElementIndex;
@@ -136,6 +136,8 @@ function makeOnMouseUpDraggableElementEventListener(element, elementDictionary) 
       listElement.appendChild(elementIndex.element);
       elementIndex.element.style.position = "static";
       element.style.transform = "";
+      element.style["border-bottom-color"] = "transparent";
+      element.style["border-top-color"] = "transparent";
     }
   }
 }
