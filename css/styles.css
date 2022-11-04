@@ -242,9 +242,7 @@ footer p {
 }
 
 .svg-div {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: end;
+  display: block;
 }
 
 @keyframes dash {
@@ -291,12 +289,5 @@ svg {
   svg {
     margin-top:    0rem;
     margin-bottom: 0rem;
-  }
-}
-
-@media only screen and (min-width: 1600px) {
-  svg {
-    margin-top:    -20rem;
-    margin-bottom: -20rem;
   }
 }
