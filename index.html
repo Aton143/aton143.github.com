@@ -15,115 +15,133 @@
     <meta name="theme-color" content="#ffffff">
     <title>Aton143</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-
-    <main class="fluid-container text-center">
-      <div class="row align-items-start">
-        <div class="col-2">
+    <header>
+      <div class="circle-row">
+        <div class="circle"></div>
+        <div class="title">
+          <h1>Pounded Earth</h1>
+          <h1>and Pundits</h1>
         </div>
-        <div class="col-8">
-          <h1>Pounded Earth and Pundits</h1>
+      </div>
+      <div class="circle-row">
+        <div class="title"></div>
+      </div>
+      <div class="circle-row">
+        <div class="title"></div>
+      </div>
+      <div class="circle-row">
+        <div class="title">
+          <h1>Antonio Martinez</h1>
+          <h1 class="title-second">Arias</h1>
+        </div>
+      </div>
+      <div class="circle-row">
+        <div class="title"></div>
+      </div>
+    </header>
 
-          <h2>What I am currently working on...</h2>
-          <hr>
+    <main>
+      <div class="project-title">
+        <h2>Projects</h2>
+      </div>
 
-          <a class="text-dark" href="https://codeberg.org/Aton143/prototype" target="_blank"><h3>Prototype</h3></a>
-          <section class="text-start">
-          <p> Prototype is a small Windows program written in C++ with minimal external libraries (Win32 API, Direct3D, stb_truetype, stb_image). Eventually, it will become a small engine for an asteroids clone. To talk about it in any depth would require a blog and I am not sure if this is quite the right setting for a blog.</p>
-          <p>Some of the current features include:</p>
-          <ul>
-            <li>2, 3, and 4D vectors and 4x4 matrices with floating point units</li>
+      <div class="project-card-row">
+        <div class="project-card">
+          <div class="pc-header">
+            <div class="pc-circles">
+              <div class="pc-circle-column">
+                <div class="pc-small-circle"></div>
+                <div class="pc-small-circle"></div>
+              </div>
+              <div class="pc-circle-column">
+                <div class="pc-large-circle"></div>
+              </div>
+            </div>
+            <div class="pc-header-title">
+              <h3><a href="https://codeberg.org/Aton143/prototype" target="_blank">Prototype</a></h3>
+            </div>
+            <div class="pc-img" >
+              <a href="https://codeberg.org/Aton143/prototype" target="_blank">
+                <img src="assets/codeberg-logo-white.svg" class="pc-img" alt="Link to Codeberg repositories"></img>
+              </a>
+            </div>
+          </div>
+          <div class="pc-line-break"></div>
+          <div class="pc-main">
+            <p>A Windows program written in C++ with minimal external libraries (Win32 API, Direct3D, stb_truetype, stb_image)
+            to be made into a game engine.</p>
+            <p class="feature-list-start">Current features include:</p>
             <ul>
-              <li>Some support for SIMD on 4D vectors (add, subtract, Hadamard product, scaling, and broadcasting)</li>
-              <li>Standard matrix operations (multiplication, addition, subtraction, transpose)</li>
-              <li>Perspective, LookAt, Transformations, Translation, and Rotations about X, Y, Z axes</li>
-              <li>Triangle math (Winding order, transformations under matrices)</li>
+              <li>Window Creation</li>
+              <li>Vector and 4x4 matrix math with SIMD support</li>
+              <li>Font Rendering</li>
+              <li>Input</li>
+              <li>File I/O</li>
+              <li>Debugging Facilities</li>
+              <li><a href="https://qoiformat.org/" target="_blank">QOI Image</a> Decoding</li>
             </ul>
-            <li>Textures</li>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="pc-header">
+            <div class="pc-circles">
+              <div class="pc-circle-column">
+                <div class="pc-small-circle"></div>
+                <div class="pc-small-circle"></div>
+              </div>
+              <div class="pc-circle-column">
+                <div class="pc-large-circle"></div>
+              </div>
+            </div>
+            <div class="pc-header-title">
+              <h3><a href="https://codeberg.org/Aton143/mt" target="_blank">MT</a></h3>
+            </div>
+            <div class="pc-img" >
+              <a href="https://codeberg.org/Aton143/mt" target="_blank">
+                <img src="assets/codeberg-logo-white.svg" class="pc-img" alt="Link to Codeberg repositories"></img>
+              </a>
+            </div>
+          </div>
+          <div class="pc-line-break"></div>
+          <div class="pc-main">
+            <p>A small cross-platform multithreading library (for Windows and macOS) written in C/C++ in the style of <a href="https://github.com/nothings/stb" target="_blank">stb</a></p>
+            <p class="feature-list-start">Current features include:</p>
             <ul>
-              <li>Alpha blending</li>
+              <li>Atomic intrinsics</li>
+              <li>Thread creation</li>
+              <li>Ticket mutexes</li>
             </ul>
-            <li>Basic Font Rendering</li>
-            <ul>
-              <li>Single line rendering</li>
-            </ul>
-            <li>Basic Input</li>
-            <ul>
-              <li>Keyboard input</li>
-            </ul>
-            <li>Window Creation</li>
-            <li>Basic File I/O</li>
-            <ul>
-              <li>Blocking-based API</li>
-            </ul>
-            <li>Basic Debugging Facilities</li>
-            <ul>
-              <li>Assert</li>
-              <li>Custom assertions for Direct3D API</li>
-            </ul>
-            <li>Image Decoding for <a href="https://qoiformat.org/" target="_blank">QOI images</a></li>
-          </ul>
-          </section>
-
-          <hr>
-
-          <a class="text-dark" href="https://codeberg.org/Aton143/mt" target="_blank"><h3>MT</h3></a>
-          <section class="text-start">
-            <p>MT is a small cross-platform multithreading library (for Windows and macOS) written in C/C++ in the style of <a href="https://github.com/nothings/stb">stb</a>.</p>
-          <p>Some of the current features include:</p>
-          <ul>
-            <li>Instrinsics for atomic compare-and-swap and add instructions for Windows and macOS platforms</li>
-            <li>Thread creation</li>
-            <li>Ticket mutexes (for more information, click <a href="https://www.youtube.com/watch?v=A2kCmouscjM">here</a>)</li>
-          </ul>
-
-          </section>
-
-          <hr>
-
-          <section id="web-project-showcase">
-            <h2>Two web projects you can visit</h2>
-            <ul class="text-start">
-              <li><a href="toy/index.html">Draggable Elements</a></li>
-              <li><a href="calculator/index.html">Calculator</a></li>
-            </ul>
-          </section>
-
-          <hr>
-
-          <p class="fw-bold text-secondary m-0 fs-5">Antonio Martinez Arias</p>
-          <p class="text-secondary m-0 fs-5 text-wrap">antonio [@] antoniomartinezarias [dot] com</p>
-
-          <footer class="d-flex flex-row justify-content-center">
-            <a href="https://www.linkedin.com/in/antonio-martinez-arias-7534621aa/" target="_blank" tabindex=0>
-              <img src="assets/linkedin-logo.webp" class="img-fluid" style="max-height: 40px;" alt="Link to LinkedIn profile"></img>
-            </a>
-            <a class="align-self-center" href="https://codeberg.org/Aton143" target="_blank" tabindex=0>
-              <img src="assets/codeberg-logo.svg" class="img-fluid" style="height: 30px;" alt="Link to Codeberg repositories"></img>
-            </a>
-            <a class="align-self-center ms-2" href="https://github.com/Aton143/aton143.github.io" target="_blank" tabindex=0>
-              <img src="assets/github-logo.png" class="img-fluid" style="height: 30px;" alt="Link to GitHub repository with website "></img>
-            </a>
-          </footer>
-
-          <p class="text-secondary fs-6">
-          Styled with <a href="https://getbootstrap.com/" target="_blank">Bootstrap 5.2</a> and made from scratch otherwise
-          </p>
-        <div class="col-2">
+          </div>
         </div>
       </div>
     </main>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
-	<script src="js/index.js"></script>
+    <footer>
+      <div class="inner-footer">
+        <div class="footer-row">
+          <p>antonio [@] antoniomartinezarias [dot] com</p>
+        </div>
+        <div class="footer-row">
+          <a href="https://www.linkedin.com/in/antonio-martinez-arias-7534621aa/" target="_blank" tabindex=0>
+            <img src="assets/linkedin-logo.webp" style="max-height: 40px; align-self: center;" alt="Link to LinkedIn profile"></img>
+          </a>
+          <a href="https://codeberg.org/Aton143" target="_blank" tabindex=0>
+            <img src="assets/codeberg-logo.svg" style="height: 30px; margin-right: 8px" alt="Link to Codeberg repositories"></img>
+          </a>
+          <a href="https://github.com/Aton143/aton143.github.io" target="_blank" tabindex=0>
+            <img src="assets/github-logo.png" class="img-fluid" style="height: 30px;" alt="Link to GitHub repository with website "></img>
+          </a>
+        </div>
+        <div class="footer-row">
+          <p>Made from scratch</p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/tinycolor.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
