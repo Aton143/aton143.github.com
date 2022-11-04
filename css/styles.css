@@ -242,14 +242,18 @@ footer p {
 }
 
 @media only screen and (max-width: 600px) {
+  .title-second {
+    text-align: left;
+  }
+
   .project-card-row {
     display: flex;
     flex-flow: column wrap;
   }
 
   .project-card {
-    width: 400px;
-    height: 350px;
+    width: 80vw;
+    height: content-box;
     padding: 1rem;
     background-color: #202020;
     border-radius: 2%;
@@ -258,6 +262,7 @@ footer p {
     margin-right: 5px;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    align-self: center;
   }
 }
 
