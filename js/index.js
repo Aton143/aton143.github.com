@@ -80,7 +80,6 @@ function redrawCircles()
 
     const restCircleRows = Array.from(circleRows).slice(1);
     let desiredLength = Math.floor(rightBoundary / circleWidth);
-    console.log(desiredLength);
 
     for (let row of restCircleRows) {
       const rowChildrenLength = row.children.length;
@@ -96,10 +95,6 @@ function redrawCircles()
 
 
   }, 1000 * 0.0625);
-}
-
-function moveCircle() {
-
 }
 
 window.onresize = function()
