@@ -21,7 +21,9 @@ function createCircle()
 
   circleElement.classList.add("circle");
   circleElement.style["background"] = `linear-gradient(-45deg, ${randomColors})`;
-  circleElement.style["background-size"] = `${getRandomIntInclusive(300, 500)}% ${getRandomIntInclusive(300, 500)}%`;
+  circleElement.style["background-size"] = `400% 400%`;
+  ///circleElement.style["background-size"] = `${getRandomIntInclusive(300, 500)}% ${getRandomIntInclusive(300, 500)}%`;
+
   circleElement.dataset.id = circleId;
 
   circleId = (circleId + 1) % 255;
@@ -125,9 +127,10 @@ window.onload = function()
 
       if (!circleDictionary[element.dataset.id])
       {
+        const sign = (Math.random() > 0.5) ? 1 : -1;
         const keyframes =
           [{
-            transform: `rotate(${getRandomIntInclusive(30, 300)}deg) translate(${mouseToCenterX}px, ${mouseToCenterY}px)`,
+            transform: `rotate(${sign * getRandomIntInclusive(30, 300)}deg) translate(${mouseToCenterX}px, ${mouseToCenterY}px)`,
           },
             {
               transform: `rotate(0deg) translate(0px, 0px)`,
