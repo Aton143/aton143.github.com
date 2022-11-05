@@ -145,11 +145,11 @@ h2 {
   border-radius: 50%;
 }
 
-.project-card-row .about-me-circle:nth-child(1) {
+.yellow {
   background-color: #FDDA0D;
 }
 
-.project-card-row .about-me-circle:nth-child(2) {
+.blue {
   background-color: #4169E1;
 }
 
@@ -162,6 +162,15 @@ h2 {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate3d(0, 1, 0, 45deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
 }
 
 .project-card {

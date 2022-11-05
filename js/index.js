@@ -150,4 +150,62 @@ window.onload = function()
       }
     }
   });
+
+  for (let projectCard of document.querySelectorAll(".project-card")) 
+  {
+    const keyframesCCW =
+    [{
+      transform: "rotate3d(0, 1, 0, 0deg)",
+    },
+    {
+      transform: "rotate3d(0, 1, 0, 45deg)",
+    },
+    {
+      transform: "rotate3d(0, 1, 0, 0deg)",
+    }];
+
+    const keyframesCW =
+    [{
+      transform: "rotate3d(0, 1, 0, 0deg)",
+    },
+    {
+      transform: "rotate3d(0, 1, 0, -90deg)",
+    },
+    {
+      transform: "rotate3d(0, 1, 0, 0deg)",
+    }];
+
+    const options =
+    {
+      duration: 1000,
+      easing: "ease",
+      iterations: 1,
+    };
+
+    projectCard.addEventListener("click", (event) => {
+      const clientRect = projectCard.getBoundingClientRect();
+      const centerX = (clientRect.left + clientRect.right) / 2;
+
+      if (event.clientX < centerX)
+      {
+        projectCard.animate(keyframesCW, options);
+      }
+      else
+      {
+        projectCard.animate(keyframesCCW, options);
+      }
+    });
+  }
+
+  document.querySelector(".about-me-card-row").addEventListener("click", (event) => {
+    const element = event.target;
+    if (element.classList.contains("about-me-circle"))
+    {
+      for (let aboutMeCircle of document.querySelectorAll(".about-me-circle"))
+      {
+        aboutMeCircle.classList.toggle("yellow");
+        aboutMeCircle.classList.toggle("blue");
+      }
+    }
+  });
 }
