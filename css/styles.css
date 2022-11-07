@@ -308,6 +308,20 @@ svg {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
+.pc-canvas {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+canvas {
+
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: pixelated;
+}
+
 @media only screen and (max-width: 667px) {
   .title-second {
     text-align: left;
